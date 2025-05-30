@@ -66,8 +66,7 @@ jobs:
       - name: Output contents
         run: ls
       - name: Deploy site
-        id: deploy
-        
+        id: deploy        
         uses: ./.github/actions/deploy-s3-docker
         with:
           bucket-region: 'us-east-1'
@@ -76,7 +75,6 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: 'us-east-1'
       - name: Output Information
         run: |
           echo "Live URL: ${{ steps.deploy.outputs.website-url }}"
