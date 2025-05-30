@@ -1,0 +1,23 @@
+name: 'Deploy to AWS S3 via Docker'
+description: 'Deploy static website via AWS S3 using Docker container'
+inputs:  
+  bucket-region:
+    description: 'AWS Region'
+    required: false
+    default: 'us-east-1'
+  bucket:
+    description: 'S3 Bucket Name'
+    required: true
+  dist-folder:
+    description: 'Folder with static files to deploy'
+    required: true
+outputs:
+  website-url:
+    description: 'URL of the deployed website'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.bucket-region }}
+    - ${{ inputs.bucket }}
+    - ${{ inputs.dist-folder }}
