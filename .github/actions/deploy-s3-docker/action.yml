@@ -8,7 +8,7 @@ inputs:
   bucket:
     description: 'S3 Bucket Name'
     required: true
-  dist-folder:
+  dist-folder:  
     description: 'Folder with static files to deploy'
     required: true
 outputs:
@@ -17,7 +17,3 @@ outputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.bucket-region }}
-    - ${{ inputs.bucket }}
-    - ${{ inputs.dist-folder }}
