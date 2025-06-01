@@ -67,8 +67,8 @@ jobs:
         run: ls
       - name: Deploy site
         id: deploy        
-        #uses: ./.github/actions/deploy-s3-docker
-        uses: ./.github/actions/deploy-s3-javascript
+        uses: ./.github/actions/deploy-s3-docker
+        #uses: ./.github/actions/deploy-s3-javascript
         with:
           bucket-region: 'us-east-1'
           bucket: 'my-agni1984-gha-custom-action-hosting'
